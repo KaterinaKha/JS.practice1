@@ -1,20 +1,4 @@
-// // Логінізація користувача
-
-// let userName = prompt("Введіть Ваш логін: ");
-
-// if (userName === loginName) {
-// 	alert(`Вітаємо ${userName}`);
-// } else {
-// 	alert("Ви ще не зареєстровані");
-// }
-
-// let userPass = prompt("Введіть Ваш пароль");
-
-// if (userPass === password) {
-// 	alert("Ура! Ви памятаєте свій пароль");
-// } else {
-// 	alert("Невірний пароль");
-// }
+"use strict";
 
 // Замовлення турів:
 // Пишемо реєстрацію користувача за допомогою prompt.  Окремо логін та пароль. Валідацію не потрібно робити.
@@ -30,39 +14,25 @@ const countriesPrice = [100, 200, 300, 400, 500, 600];
 let loginName = "";
 let password = "";
 
-function registration() {
-	//реєстрація
-	loginName = prompt("Введіть новий логін: ");
-	password = prompt("Введіть пароль");
-	console.log = `Ваш логін ${loginName}`;
-	console.log = `Ваш пароль ${password}`;
-}
-
-registration();
+//реєстрація
+loginName = prompt("Введіть новий логін: ");
+password = prompt("Введіть пароль");
+console.log(`Ваш логін ${loginName}`);
+console.log(`Ваш пароль ${password}`);
 
 let username = "";
 let userpassword = "";
-let msg = "";
-
-function login() {
-	//Логінізація
+do {
 	username = prompt("Введіть ваш логін: ");
 	userpassword = prompt("Введіть ваш пароль");
-	if (username === loginName && userpassword === password) {
-		msg = "Вітаємо!";
-	} else {
-		msg = "Спробуйте ще раз";
-	}
-}
-
-login();
+} while (username !== loginName || userpassword !== password);
+console.log("Ласкаво просимо!");
 
 let maxPrice = prompt("Введіть суму, яку ви готові витратити на тур");
+
 const availableCountries = [];
 
-for (let i = 0; i < countries.length; i += i) {
-	const element = array[index];
-
+for (let i = 0; i < countries.length; i++) {
 	if (countriesPrice[i] <= maxPrice) {
 		availableCountries.push(countries[i]);
 	}
@@ -76,7 +46,7 @@ const selectedCountryIndex = countries.indexOf(selectedCountry);
 if (selectedCountryIndex === -1) {
 	alert("Невірно введена країна.");
 } else if (countriesPrice[selectedCountryIndex] > maxPrice) {
-	alert("Ця країна недоступна за введеним бюджетом.");
+	alert("Ця країна поки недоступна для вашого гаманця.");
 } else {
 	const remainingBalance = maxPrice - countriesPrice[selectedCountryIndex];
 	alert("Ваш тур до " + selectedCountry + " оплачено. Залишок на рахунку: " + remainingBalance);
